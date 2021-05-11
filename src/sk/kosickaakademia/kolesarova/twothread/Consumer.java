@@ -1,15 +1,10 @@
 package sk.kosickaakademia.kolesarova.twothread;
 
-public class Consumer extends Thread{
-    private Thread t;
+import sk.kosickaakademia.kolesarova.homework.Calculator;
 
-    @Override
-    public synchronized void start() {
-        if(t==null) {
-            t = new Thread(this, "consumer");
-            t.start();
-        }
-    }
+public class Consumer implements Runnable{
+    private Calculator calculator;
+    private Thread t;
 
     @Override
     public void run() {
@@ -23,5 +18,8 @@ public class Consumer extends Thread{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void start() {
     }
 }
